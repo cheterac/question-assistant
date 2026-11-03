@@ -16,3 +16,12 @@ with ZipFile(target, "w", ZIP_DEFLATED) as archive:
 with ZipFile(target) as archive:
     assert archive.testzip() is None
 print(target)
+
+cloud = root / "cloud"
+cloud_manifest = json.loads((cloud / "manifest.json").read_text())
+cloud_target = target.parent / f"otvet-ryadom-cloud-{cloud_manifest['version']}.zip"
+with ZipFile(cloud_target, "w", ZIP_DEFLATED) as archive:
+    for name in ["manifest.json", "panel.html", "panel.mjs", "model.mjs", "ui.css",
+                 "setup.html", "setup.js", "setup.css", *cloud_manifest["icons"].values()]:
+        archive.write(cloud / name, name)
+print(cloud_target)

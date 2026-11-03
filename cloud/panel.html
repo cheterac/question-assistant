@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ответ рядом</title><link rel="stylesheet" href="ui.css"></head>
+<body><main id="card" aria-label="Ответ рядом">
+<header><div><span class="dot"></span><strong>Ответ рядом</strong></div><button id="close" aria-label="Закрыть окно" title="Закрыть">×</button></header>
+<div id="preview" hidden><img id="shot" alt="Снимок для отправки"><button id="analyze">Отправить снимок в Groq</button></div><section id="log" aria-label="Переписка" aria-live="polite"></section>
+<p id="status" role="status">Открываем…</p>
+<nav><button id="expand" aria-expanded="false">Развернуть</button><button id="copy" disabled>Копировать</button><button id="retry" hidden>Повторить</button></nav>
+<form hidden><label for="draft">Продолжить разговор</label><div class="compose"><textarea id="draft" rows="2" placeholder="Уточните вопрос…" spellcheck="false"></textarea><button id="send" type="submit" aria-label="Отправить">↑</button></div></form>
+<footer>Снимок и чат → Groq · <button id="setup">Настройка</button></footer>
+</main><script type="module" src="panel.mjs"></script></body></html>
